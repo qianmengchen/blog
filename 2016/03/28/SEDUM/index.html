@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SEDUM | Qianmeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Exploiting Social Networks in Utility-Based Distributed Routing for DTNsThe probability that at least one copy is sent to the destination node (P) is$P = 1 - (1 - P_{(S,D)})^{NC}$Here $P{(S,D)}$ is th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEDUM">
+<meta property="og:url" content="http://qianmengchen.github.io/blog/2016/03/28/SEDUM/index.html">
+<meta property="og:site_name" content="Qianmeng's Blog">
+<meta property="og:description" content="Exploiting Social Networks in Utility-Based Distributed Routing for DTNsThe probability that at least one copy is sent to the destination node (P) is$P = 1 - (1 - P_{(S,D)})^{NC}$Here $P{(S,D)}$ is th">
+<meta property="og:updated_time" content="2016-04-05T05:07:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SEDUM">
+<meta name="twitter:description" content="Exploiting Social Networks in Utility-Based Distributed Routing for DTNsThe probability that at least one copy is sent to the destination node (P) is$P = 1 - (1 - P_{(S,D)})^{NC}$Here $P{(S,D)}$ is th">
+  
+    <link rel="alternate" href="atom.xml" title="Qianmeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Qianmeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://qianmengchen.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SEDUM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/03/28/SEDUM/" class="article-date">
+  <time datetime="2016-03-28T22:18:45.000Z" itemprop="datePublished">2016-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SEDUM
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Exploiting-Social-Networks-in-Utility-Based-Distributed-Routing-for-DTNs"><a href="#Exploiting-Social-Networks-in-Utility-Based-Distributed-Routing-for-DTNs" class="headerlink" title="Exploiting Social Networks in Utility-Based Distributed Routing for DTNs"></a><a href="#Exploiting_Social_Networks_in_Utility-Based_Distributed_Routing_for_DTNs" title="Exploiting Social Networks in Utility-Based Distributed Routing for DTNs"></a>Exploiting Social Networks in Utility-Based Distributed Routing for DTNs</h2><p>The probability that at least one copy is sent to the destination node (P) is<br>$P = 1 - (1 - P_{(S,D)})^{N<em>C}$<br>Here $P</em>{(S,D)}$ is the probability for message to be transmitted from the source to the destination, and each message can have $N_C$ copies.</p>
+<p>思路：<br>可证得：随着$N<em>C$的线性增长，overhead也线性增长，而delay只有negligible的减少。所以目标在提升$P</em>{(S,D)}$ </p>
+<p>传递策略：</p>
+<ol>
+<li>传递的第一个阶段为Replicating Phase，消息从源头向相遇节点拷贝一定数量次。</li>
+<li>第二个阶段为Forwarding Phase，每个持有消息的节点总是将消息传递给Utility比自己高的节点。</li>
+<li>第三个阶段为Clearing Phase，在某消息完成传递之后，通知系统内其他节点丢弃该消息。</li>
+</ol>
+<p>Utility定义：</p>
+<ol>
+<li>定义direct duration为$\hat{U}<em>{(i, j)} = (\sum\limits</em>{k=1}^{K}t_{(i, j)(k)})/T$</li>
+<li>定义indirect duration为$\tilde{U}<em>{(i, j)} = \hat{U}</em>{(i, k)}*\hat{U}_{(k, j)}$</li>
+<li>最终定义Utility为$U<em>{(i, j)} = max(\hat{U}</em>{(i ,j)}, max(\tilde{U}_{(i, j)}))$</li>
+<li>此外，Utility需要每隔一段时间进行更新，获得新的Utility之后可以通过如下方式计算所采取的Utility：<br>$U<em>{(i, j)} = \gamma U</em>{(i, j)} + (1 - \gamma)U<em>{(i, j)</em>{old}}, \gamma \in (0, 1)$</li>
+</ol>
+<p>拷贝方式：<br>Optimal Tree Replication Algorithm:<br>如果每个初始节点允许存有的拷贝数为$N_C$，那么它的responsibility为$N_C－1$。每次遇到需要传递的节点，它将自己responsibility的一半传递给对方，自己继续发放剩下的部分。收到拷贝的节点重复该行为。该算法的时间复杂度和Binary Tree Replication Algorithm同为$log_2 N_C$</p>
+<p><strong>Buffer Management:</strong></p>
+<ol>
+<li>关于消息在Buffer中的排列：<br>先分priority，priority高的先处理。同priority中根据接受时间递增排列，以保证停留时间长的先传递出去。</li>
+<li>如何处理Buffer Congestion：<br>消息源节点创建一定量其消息的core-replica然后传递给周围utility高的节点。core-replica不能被替换掉，但是可以把non-core-replica替换。对于同为non-core-replica的情况，utility高的消息可以把低的消息置换出来。</li>
+<li>如何删除意境传递成功的消息：<br>每个节点都会存一个deliveredMsgList，每当一个消息传递成功时，就更新这两个节点的list。每当两个节点相遇时，双方合并list，然后检查并删除成功的消息。</li>
+</ol>
+<p>反思：<br>这是一篇讨论utility的文章，然而考虑到utility的实用性问题，暂抛开这个问题不谈。这篇文章对我而言有这样几个点值得注意，一个是optimal tree replication algorithm，一个是buffer management。</p>
+<p>replication这一块，之前一直默认的是binary tree replication是最优方案，甚至当时我看paper时，看到optimal tree的模式也以为和binary tree是一个东西只是换了个名字。然而这篇paper提出optimal tree replication效率比binary tree高，因为replication delay比较短（蛤？）从算法的角度来说这两种方法应该是一样的，所以并不理解这个效率的提高来自哪。</p>
+<p>buffer management的主要启发是core-replica的设置，这种方法使一个消息不会因为时间久远而灭绝在网络中。此外deliveredMsgList乍一看对效率提升有帮助，但是其实和普通的spread deleting message是一个效果。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/SEDUM/" data-id="cimn0bqgp000aaexv86awhstz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/03/28/CS35L-March-28th/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CS35L March 28th
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/03/28/PeopleRank/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PeopleRank</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CS-35L/" style="font-size: 10px;">CS 35L</a> <a href="/blog/tags/Other/" style="font-size: 10px;">Other</a> <a href="/blog/tags/Research-Notes/" style="font-size: 20px;">Research Notes</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/03/28/CS35L-March-28th/">CS35L March 28th</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/SEDUM/">SEDUM</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/PeopleRank/">PeopleRank</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/">Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/Spray-and-Wait/">Spray and Wait</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Qianmeng Chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

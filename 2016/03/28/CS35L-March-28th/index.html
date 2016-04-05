@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CS35L March 28th | Qianmeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Warning: DO NOT run commands like su and sudo on SEASNET
+
+GNU/Linux
+
+Linux is only the Kernel of an operating system
+Which Linux?
+Ubuntu Linux Distribution:
+
+Most popular as of 2015 for personal use
+F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS35L March 28th">
+<meta property="og:url" content="http://qianmengchen.github.io/blog/2016/03/28/CS35L-March-28th/index.html">
+<meta property="og:site_name" content="Qianmeng's Blog">
+<meta property="og:description" content="Warning: DO NOT run commands like su and sudo on SEASNET
+
+GNU/Linux
+
+Linux is only the Kernel of an operating system
+Which Linux?
+Ubuntu Linux Distribution:
+
+Most popular as of 2015 for personal use
+F">
+<meta property="og:updated_time" content="2016-04-05T05:07:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CS35L March 28th">
+<meta name="twitter:description" content="Warning: DO NOT run commands like su and sudo on SEASNET
+
+GNU/Linux
+
+Linux is only the Kernel of an operating system
+Which Linux?
+Ubuntu Linux Distribution:
+
+Most popular as of 2015 for personal use
+F">
+  
+    <link rel="alternate" href="atom.xml" title="Qianmeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Qianmeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://qianmengchen.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CS35L-March-28th" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/03/28/CS35L-March-28th/" class="article-date">
+  <time datetime="2016-03-28T22:20:12.000Z" itemprop="datePublished">2016-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CS35L March 28th
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Warning: DO NOT run commands like <strong>su</strong> and <strong>sudo</strong> on SEASNET</p>
+<ol>
+<li>GNU/Linux</li>
+</ol>
+<p>Linux is only the <strong>Kernel</strong> of an operating system</p>
+<p><strong>Which Linux?</strong></p>
+<p>Ubuntu Linux Distribution:</p>
+<ul>
+<li>Most popular as of 2015 for personal use</li>
+<li>Frequently updated, fixed release cycle</li>
+<li>Simple installation and booting</li>
+<li>Nice set of pre-installed packages</li>
+</ul>
+<p>Connect to Linux server:</p>
+<p>ssh username@lnxsrv.seas.ucla.edu<br>password</p>
+<h2 id="Files-and-Processes"><a href="#Files-and-Processes" class="headerlink" title="Files and Processes"></a><a href="#Files_and_Processes" title="Files and Processes"></a>Files and Processes</h2><p>Everything is either a <strong>process</strong> or a <strong>file</strong>:</p>
+<ul>
+<li>Process: an executing program identified by PID</li>
+<li>File:</li>
+</ul>
+<h3 id="The-Basics-Moving-Around"><a href="#The-Basics-Moving-Around" class="headerlink" title="The Basics: Moving Around"></a><a href="#The_Basics_3A_Moving_Around" title="The Basics: Moving Around"></a>The Basics: Moving Around</h3><ul>
+<li>pwd: print working directory</li>
+<li><p>cd: change directory</p>
+<pre><code>*   ~: home
+</code></pre><ul>
+<li>.: current directory</li>
+<li>/: root directory, or directory separator</li>
+<li>..: parent directory</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Basics-Dealing-with-Files"><a href="#The-Basics-Dealing-with-Files" class="headerlink" title="The Basics: Dealing with Files"></a><a href="#The_Basics_3A_Dealing_with_Files" title="The Basics: Dealing with Files"></a>The Basics: Dealing with Files</h3><ul>
+<li>mv: move/rename a file</li>
+<li>cp: copy a file</li>
+<li><p>rm: remove a file</p>
+<pre><code>*   -r: remove directories and their contents recursively
+</code></pre></li>
+<li><p>mkdir: make a directory</p>
+</li>
+<li>rmdir: remove an empty directory</li>
+<li><p>ls: list contents of a directory</p>
+<pre><code>*   -a: list all files including hidden ones
+</code></pre><ul>
+<li>-l: show long listing including permission info</li>
+<li>-d: list directories</li>
+</ul>
+</li>
+</ul>
+<h3 id="Linux-File-Permissions"><a href="#Linux-File-Permissions" class="headerlink" title="Linux File Permissions"></a><a href="#Linux_File_Permissions" title="Linux File Permissions"></a>Linux File Permissions</h3><ul>
+<li><p>chmod</p>
+<pre><code>*   read(r), write(w), executable(x)
+</code></pre><ul>
+<li>user, group, others</li>
+<li>-u: user, the owner of the file</li>
+<li>-g: group, users who are members of the file’s group</li>
+<li>-o: others, users who are not the owner of the file or members of the group</li>
+<li>-a: all, all three of the above, is the same as <em>-ugo</em>*   ugo, each contains three bits: rwxrw—x(rwx for u, rw for g and x for o, also written as 111110001 or 761)</li>
+<li><strong>eg: chmod g+w README</strong> add w permission for g</li>
+<li><strong>eg: chmod o-r README</strong> deprive r permission of o</li>
+<li><strong>eg: chmod g=rx README</strong> g has permissiin of r and x</li>
+<li>(= “chmod g - w README” <strong>and</strong> “chmod g + x README” )</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Basics-Changing-File-Attributes"><a href="#The-Basics-Changing-File-Attributes" class="headerlink" title="The Basics: Changing File Attributes"></a><a href="#The_Basics_3A_Changing_File_Attributes" title="The Basics: Changing File Attributes"></a>The Basics: Changing File Attributes</h3><ul>
+<li><p>ln: create a link</p>
+<pre><code>*   Hard links: point to physical data
+</code></pre><ul>
+<li>Soft links aka symbolic links (-s): point to a file</li>
+</ul>
+</li>
+<li><p>touch: update access &amp; modification time to current time</p>
+</li>
+</ul>
+<h3 id="The-Basics-find"><a href="#The-Basics-find" class="headerlink" title="The Basics: find"></a><a href="#The_Basics_3A_find" title="The Basics: find"></a>The Basics: find</h3><ul>
+<li>-type: type of a file(eg: directory, symbolic link)</li>
+<li>-perm: permission of a file</li>
+<li>-name: name of a file</li>
+<li>-user: owner of a file</li>
+<li>-maxdepth: how many levels to search</li>
+<li><strong>eg: find . -name hwk1 -type d -perm 761 -user qianmeng -maxdepth 1</strong>(1 means current directory only)</li>
+</ul>
+<h3 id="The-Basics-whereis"><a href="#The-Basics-whereis" class="headerlink" title="The Basics: whereis"></a><a href="#The_Basics_3A_whereis" title="The Basics: whereis"></a>The Basics: whereis</h3><ul>
+<li>locate the binary file</li>
+</ul>
+<h3 id="Manual-man"><a href="#Manual-man" class="headerlink" title="Manual(man)"></a><a href="#Manual_28man_29" title="Manual(man)"></a>Manual(man)</h3><ul>
+<li>Extensive documentation that comes preinstalled with almost all substantial Unix and Unix-like operating systems</li>
+<li><p>Usage</p>
+<pre><code>*   read a manual page for a Linux command
+
+    - man &amp;lt;command_name&amp;gt;
+</code></pre><ul>
+<li>man section command_name</li>
+<li>Hit &quot;q&quot; to get out of man page</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/CS35L-March-28th/" data-id="cimn0bqgh0003aexv1a6lisvr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/03/28/SEDUM/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SEDUM</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CS-35L/" style="font-size: 10px;">CS 35L</a> <a href="/blog/tags/Other/" style="font-size: 10px;">Other</a> <a href="/blog/tags/Research-Notes/" style="font-size: 20px;">Research Notes</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/03/28/CS35L-March-28th/">CS35L March 28th</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/SEDUM/">SEDUM</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/PeopleRank/">PeopleRank</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/">Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/Spray-and-Wait/">Spray and Wait</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Qianmeng Chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

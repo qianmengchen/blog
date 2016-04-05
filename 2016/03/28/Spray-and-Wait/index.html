@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Spray and Wait | Qianmeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="An Efficient Routing Scheme for Intermittently Connected Mobile NetworksGeneral spray and wait:Definition: Spray and Wait routing consists of the following two phases:
+
+Spray phase: for every message">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spray and Wait">
+<meta property="og:url" content="http://qianmengchen.github.io/blog/2016/03/28/Spray-and-Wait/index.html">
+<meta property="og:site_name" content="Qianmeng's Blog">
+<meta property="og:description" content="An Efficient Routing Scheme for Intermittently Connected Mobile NetworksGeneral spray and wait:Definition: Spray and Wait routing consists of the following two phases:
+
+Spray phase: for every message">
+<meta property="og:updated_time" content="2016-04-05T05:07:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spray and Wait">
+<meta name="twitter:description" content="An Efficient Routing Scheme for Intermittently Connected Mobile NetworksGeneral spray and wait:Definition: Spray and Wait routing consists of the following two phases:
+
+Spray phase: for every message">
+  
+    <link rel="alternate" href="atom.xml" title="Qianmeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Qianmeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://qianmengchen.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Spray-and-Wait" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/03/28/Spray-and-Wait/" class="article-date">
+  <time datetime="2016-03-28T22:18:28.000Z" itemprop="datePublished">2016-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spray and Wait
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="An-Efficient-Routing-Scheme-for-Intermittently-Connected-Mobile-Networks"><a href="#An-Efficient-Routing-Scheme-for-Intermittently-Connected-Mobile-Networks" class="headerlink" title="An Efficient Routing Scheme for Intermittently Connected Mobile Networks"></a><a href="#An_Efficient_Routing_Scheme_for_Intermittently_Connected_Mobile_Networks" title="An Efficient Routing Scheme for Intermittently Connected Mobile Networks"></a>An Efficient Routing Scheme for Intermittently Connected Mobile Networks</h1><h2 id="General-spray-and-wait"><a href="#General-spray-and-wait" class="headerlink" title="General spray and wait:"></a><a href="#General_spray_and_wait_3A" title="General spray and wait:"></a>General spray and wait:</h2><p>Definition: <em>Spray and Wait routing consists of the following two phases:</em></p>
+<ol>
+<li>Spray phase: for every message originating at a source node, L message copies are initially spread - forwarded by the source and possibly other nodes receiving a copy - to L distinct “relays”.</li>
+<li>Wait phase: if the destination is not found in the spraying phase, each of the L nodes carrying a message copy performs direct transmission.</li>
+</ol>
+<h2 id="Binary-spray-and-wait"><a href="#Binary-spray-and-wait" class="headerlink" title="Binary spray and wait:"></a><a href="#Binary_spray_and_wait_3A" title="Binary spray and wait:"></a>Binary spray and wait:</h2><p>The source of a message initially starts with L copies; any node A that has n &gt; 1 message copies (source or relay), and encounters another node B (with copies), hands over to B[n/2] and keeps [n/2] for itself; when it is left with only one copy, it switches to direct transmission.</p>
+<p>Binary Spray and Wait is optimal under IID condition (Independently and Identically Distributed).</p>
+<p>Theorem: When all nodes move in an IID manner, Binary Spray and Wait routing has the minimum expected delay among all spray and wait routing algorithms.</p>
+<h2 id="Optimization-to-meet-performance-constraints"><a href="#Optimization-to-meet-performance-constraints" class="headerlink" title="Optimization to meet performance constraints"></a><a href="#Optimization_to_meet_performance_constraints" title="Optimization to meet performance constraints"></a>Optimization to meet performance constraints</h2><p>Question: what does ICMN network stand for?<br>Lemma 1: Let M nodes with transmission range K perform independent random walks on a $\sqrt{N}*\sqrt{N}$ torus. Then:</p>
+<ol>
+<li>The delay of Direct Transmission is exponentially distributed with the average<br>$ED_{dt} = 0.5N(0.34logN - \frac{2^{K+1}-K-2}{2^K -1})$</li>
+<li>The expected delay of the optimal algorithm is:<br>$ED<em>{opt} = \frac{H</em>{M-1}}{M-1}ED_{dt}$<br>_where $H_n$ is the $n^{th}$ Harmonic Number, i.e, $H<em>n = \sum</em>{i=1}^{n}\frac{1}{i} = \Theta(logn)$_</li>
+</ol>
+<p>Lemma2:<br><em>The expected delay of Spray and Wait, when L message copies are used, is upper-bounded by</em><br>$ED<em>{sw} \leq (H</em>{M-1} - H<em>{M-L})ED</em>{dt} + \frac{M-L}{M-1}\frac{ED_{dt}}{L}$<br><em>The bound is tight when $L \ll M$</em></p>
+<h2 id="Choose-L-to-Achieve-a-Required-Expected-Delay"><a href="#Choose-L-to-Achieve-a-Required-Expected-Delay" class="headerlink" title="Choose L to Achieve a Required Expected Delay"></a><a href="#Choose_L_to_Achieve_a_Required_Expected_Delay" title="Choose L to Achieve a Required Expected Delay"></a>Choose L to Achieve a Required Expected Delay</h2><p>Lemma 3: The minimum number of copies $L<em>{min}$ needed for Spray and Wait to achieve an expected delay at most $aED</em>{opt}$ is independent of the size of the network N and transmission range K, and only depends on a and the number of nodes M.</p>
+<p>Estimate for $L<em>{min}$:<br>$(H</em>{M}^{3} - 1.2)L^3 + (H<em>{M}^{2} - \frac{\pi^2}{6})L^2 + (a + \frac{2M-1}{M(M-1)})L = \frac{M}{M-1}$ where $H</em>{r}^{n} = \sum_{i=1}^{n}\frac{1}{i^r}$ is the $n^{th}$ Harmonic number of order r.</p>
+<h3 id="Estimate-for-M-number-of-nodes"><a href="#Estimate-for-M-number-of-nodes" class="headerlink" title="Estimate for M (number of nodes)"></a><a href="#Estimate_for_M__28number_of_nodes_29" title="Estimate for M (number of nodes)"></a>Estimate for M (number of nodes)</h3><p>let $T_1$ be the time until a node encounters any other node<br>from Lemma 2, T1 is exponentially distributed with average $T<em>1 = \frac{ED</em>{dt}}{M-1}$<br>let $T_2$ be the time until two different nodes are encountered, then the expected value of $T<em>2$ equals $ED</em>{dt}(\frac{1}{M-1} + \frac{1}{M-2})$.<br>Then it is easy to get estimate M:<br>$\hat{M} = \frac{2T_2 - 3T_1}{T_2 - 2T_1}$</p>
+<p>$\hat{T<em>1} = \frac{1}{n}\sum</em>{k=1}^{n}(\frac{M-c<em>k}{M-1})T</em>{1,k}$<br>$\hat{T<em>2} = \frac{1}{n}\sum</em>{k=1}^{n}[(\frac{M-c<em>{k-1}}{M-1})T</em>{1,k-1} + (\frac{M-c<em>k}{M-2})T</em>{1,k}]$<br>then replacing the $T_1$ and $T_2$ in the equation for $\hat{M}$, we get a current estimate of M.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Spray-and-Wait/" data-id="cimn0bqgs000daexv7zc39uwz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/03/28/BUBBLE-Rap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BUBBLE Rap</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CS-35L/" style="font-size: 10px;">CS 35L</a> <a href="/blog/tags/Other/" style="font-size: 10px;">Other</a> <a href="/blog/tags/Research-Notes/" style="font-size: 20px;">Research Notes</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/03/28/CS35L-March-28th/">CS35L March 28th</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/SEDUM/">SEDUM</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/PeopleRank/">PeopleRank</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/">Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/Spray-and-Wait/">Spray and Wait</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Qianmeng Chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
