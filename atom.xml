@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://qianmengchen.github.io/blog/"/>
-  <updated>2016-04-11T11:21:29.000Z</updated>
+  <updated>2016-04-11T11:38:39.000Z</updated>
   <id>http://qianmengchen.github.io/blog/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm_simulation1/"/>
-    <id>http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm_simulation1/</id>
-    <published>2016-04-11T10:45:58.000Z</published>
-    <updated>2016-04-11T11:21:29.000Z</updated>
+    <title>P2POnSocialNorm_simulation1</title>
+    <link href="http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm-simulation1/"/>
+    <id>http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm-simulation1/</id>
+    <published>2016-04-11T11:35:00.000Z</published>
+    <updated>2016-04-11T11:38:39.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;一个简单的模拟&quot;&gt;&lt;a href=&quot;#一个简单的模拟&quot; class=&quot;headerlink&quot; title=&quot;一个简单的模拟&quot;&gt;&lt;/a&gt;一个简单的模拟&lt;/h2&gt;&lt;p&gt;背景：&lt;/p&gt;
 &lt;p&gt;在一个DTN中，假设每个人都可以提供某种服务或者接受别人的服务。当俩节点相遇时，一方发出request，另一方可以选择serve或者不serve。现设计一种机制，使得网络中所有参与者都愿意在接收到他人请求时进行serve，避免出现free rider（即只获取服务不分享服务的人）。该机制如下：&lt;/p&gt;
@@ -40,20 +40,20 @@
 &lt;ul&gt;
 &lt;li&gt;使用全部default设定：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages/imges/test3K_simu.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages//images/test3k_theo.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/test3K_simu.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/test3k_theo.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;仅将时间延长到10000&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages/images/test10k_simu.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages/imges/test10k_theo.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/test10k_simu.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imges/test10k_theo.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;时间仍然为10000，threshold调为15 (75% limit)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages/imges/test10k_simu_15th.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages/imges/test10k_theo_15th.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imges/test10k_simu_15th.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imges/test10k_theo_15th.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;将系统出错概率调整为0.0000001&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages/imges/test3k_simu_e-7.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;blog/blob/gh-pages/imges/test3k_theo_e-7.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imges/test3k_simu_e-7.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/imges/test3k_theo_e-7.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
 &lt;p&gt;虽然理论上还要再分析一下之类的。。。但是现在懒癌犯了，下次再补吧。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -499,7 +499,7 @@
     <updated>2016-04-05T05:07:15.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;定义与名词解释&quot;&gt;&lt;a href=&quot;#定义与名词解释&quot; class=&quot;headerlink&quot; title=&quot;定义与名词解释&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#u5B9A_u4E49_u4E0E_u540D_u8BCD_u89E3_u91CA&quot; title=&quot;定义与名词解释&quot;&gt;&lt;/a&gt;定义与名词解释&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;随建即连网络（Mobile Ad-Hoc Network, abbr. MANET）是无线随意网络（Wireless Ad-Hoc Network, abbr. WANET）的一种。它是一种以移动设备，通过无线链接，自我配置所形成的网络。在MANET之中的每个移动设备都可以自由移动，随时改变无线链接。每个移动设备节点都必须协助转发网络数据包，即使这个数据包是跟这个设备无关的。要创建一个 MANET，最根本的挑战在于让每个移动设备都能够得到足够的信息，以协助保持网络信息的流通。&lt;br&gt;–引自&lt;a href=&quot;https://zh.wikipedia.org/wiki/隨建即連網路&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;维基百科&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;随建即连网络（Mobile Ad-Hoc Network, abbr. MANET）是无线随意网络（Wireless Ad-Hoc Network, abbr. WANET）的一种。它是一种以移动设备，通过无线链接，自我配置所形成的网络。在MANET之中的每个移动设备都可以自由移动，随时改变无线链接。每个移动设备节点都必须协助转发网络数据包，即使这个数据包是跟这个设备无关的。要创建一个 MANET，最根本的挑战在于让每个移动设备都能够得到足够的信息，以协助保持网络信息的流通。&lt;br&gt;–引自&lt;a href=&quot;https://zh.wikipedia.org/wiki/隨建即連網路&quot;&gt;维基百科&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;网络可以分为以下几种：&lt;/p&gt;
 &lt;ol&gt;
