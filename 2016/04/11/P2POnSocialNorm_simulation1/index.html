@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Qianmeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个简单的模拟背景：
+在一个DTN中，假设每个人都可以提供某种服务或者接受别人的服务。当俩节点相遇时，一方发出request，另一方可以选择serve或者不serve。现设计一种机制，使得网络中所有参与者都愿意在接收到他人请求时进行serve，避免出现free rider（即只获取服务不分享服务的人）。该机制如下：
+
+每个人都有一个全局可知的reputation。
+只有当双方的reputation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qianmeng's Blog">
+<meta property="og:url" content="http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm_simulation1/index.html">
+<meta property="og:site_name" content="Qianmeng's Blog">
+<meta property="og:description" content="一个简单的模拟背景：
+在一个DTN中，假设每个人都可以提供某种服务或者接受别人的服务。当俩节点相遇时，一方发出request，另一方可以选择serve或者不serve。现设计一种机制，使得网络中所有参与者都愿意在接收到他人请求时进行serve，避免出现free rider（即只获取服务不分享服务的人）。该机制如下：
+
+每个人都有一个全局可知的reputation。
+只有当双方的reputation">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/imges/test3K_simu.png">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/images/test3k_theo.png">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/imges/test10k_simu.png">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/imges/test10k_theo.png">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/imges/test10k_simu_15th.png">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/imges/test10k_theo_15th.png">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/imges/test3k_simu_e-7.png">
+<meta property="og:image" content="http://qianmengchen.github.io/blog/imges/test3k_theo_e-7.png">
+<meta property="og:updated_time" content="2016-04-11T11:06:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qianmeng's Blog">
+<meta name="twitter:description" content="一个简单的模拟背景：
+在一个DTN中，假设每个人都可以提供某种服务或者接受别人的服务。当俩节点相遇时，一方发出request，另一方可以选择serve或者不serve。现设计一种机制，使得网络中所有参与者都愿意在接收到他人请求时进行serve，避免出现free rider（即只获取服务不分享服务的人）。该机制如下：
+
+每个人都有一个全局可知的reputation。
+只有当双方的reputation">
+<meta name="twitter:image" content="http://qianmengchen.github.io/blog/imges/test3K_simu.png">
+  
+    <link rel="alternate" href="atom.xml" title="Qianmeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Qianmeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://qianmengchen.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-P2POnSocialNorm_simulation1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/11/P2POnSocialNorm_simulation1/" class="article-date">
+  <time datetime="2016-04-11T10:45:58.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一个简单的模拟"><a href="#一个简单的模拟" class="headerlink" title="一个简单的模拟"></a>一个简单的模拟</h2><p>背景：</p>
+<p>在一个DTN中，假设每个人都可以提供某种服务或者接受别人的服务。当俩节点相遇时，一方发出request，另一方可以选择serve或者不serve。现设计一种机制，使得网络中所有参与者都愿意在接收到他人请求时进行serve，避免出现free rider（即只获取服务不分享服务的人）。该机制如下：</p>
+<ol>
+<li>每个人都有一个全局可知的reputation。</li>
+<li>只有当双方的reputation都超过一个threshold时，双方才可以进行服务。</li>
+<li>如果出现了free rider情况，该free rider的reputation将被降为0。</li>
+<li>遵守规矩的人，reputation将随着时间增加，但reputation存在上限。</li>
+<li>要考虑因为网络连接错误的可能，即有一定概率服务者提供了服务而请求者没有收到。</li>
+<li>要考虑因为系统问题，有人被错误地判断为了free rider。</li>
+<li>当然，对他人服务是要有一定代价的，此外，人对未来可获取价值的期望的在意程度也不一样。</li>
+</ol>
+<p>此处的基础模拟暂时不考虑很多因素。首先是，假定网络中每个人都愿意进行serve，因此reputation被降的情况只因为系统错误。此外，尽管每个人相遇后进行serve的utility虽然会进行计算，但是不会实际对模拟结果造成影响。</p>
+<p>模拟程序python代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the reward: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	reward = int(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	reward = <span class="number">10</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set reward to default 10"</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the cost: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	cost = int(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	cost = <span class="number">2</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set cost to default 2"</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the upper limit of reputation: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	L = int(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	L = <span class="number">20</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set L to default 20"</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the threshold of reputation: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	h0 = int(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	h0 = int(L*<span class="number">0.5</span>)</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set h0 to default "</span>+str(h0)</span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the number of peers: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	num = int(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	num = <span class="number">20</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set num to default 20"</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the probability of connectivity error: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	varepsilon = float(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	varepsilon = <span class="number">0.05</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set varepsilon to default 0.05"</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the probability of false punishment: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	alpha = float(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	alpha = <span class="number">0.01</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set alpha to default 0.01"</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the probability of encounter: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	encounterProb = float(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	encounterProb = <span class="number">0.02</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set encounterProb to default 0.02"</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">"Please input the time duration of simulation: "</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	ticks = int(s)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">	ticks = <span class="number">3000</span></span><br><span class="line">	<span class="keyword">print</span> <span class="string">"set ticks to default 3000"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">peer</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">		self.reputation = <span class="number">0</span></span><br><span class="line">		self.utility = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## set \lambda*b to 1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">serve</span><span class="params">(server, client)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> server.reputation &gt;= h0 <span class="keyword">and</span> client.reputation &gt;= h0:</span><br><span class="line">		server.utility = server.utility - cost</span><br><span class="line">		random.seed()</span><br><span class="line">		success = random.random()</span><br><span class="line">		<span class="keyword">if</span>(success &gt;= varepsilon):</span><br><span class="line">			client.utility = client.utility + (reward - cost)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			client.utility = client.utility - cost</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">allPeers = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">	allPeers.append(peer())</span><br><span class="line"></span><br><span class="line">plot = [[<span class="number">0</span> <span class="keyword">for</span> t <span class="keyword">in</span> range(ticks+<span class="number">1</span>)] <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, L+<span class="number">1</span>)]</span><br><span class="line">ratio = [<span class="number">0.0</span> <span class="keyword">for</span> t <span class="keyword">in</span> range(ticks+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">theory = [[<span class="number">0.0</span> <span class="keyword">for</span> t <span class="keyword">in</span> range(ticks+<span class="number">1</span>)] <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, L+<span class="number">1</span>)]</span><br><span class="line">theory[<span class="number">0</span>][<span class="number">0</span>] = num;</span><br><span class="line">Theory_active = [<span class="number">0.0</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(ticks+<span class="number">1</span>)]</span><br><span class="line">Theory_active[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">Theory_ratio = [<span class="number">0.0</span> <span class="keyword">for</span> t <span class="keyword">in</span> range(ticks+<span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> range(ticks+<span class="number">1</span>):</span><br><span class="line">	distribution = [<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, L+<span class="number">1</span>)]</span><br><span class="line">	<span class="keyword">for</span> someone <span class="keyword">in</span> allPeers:</span><br><span class="line">		random.seed()</span><br><span class="line">		prob = random.random()</span><br><span class="line">		<span class="keyword">if</span> prob &lt; encounterProb:</span><br><span class="line">			objID = random.randint(<span class="number">0</span>, num<span class="number">-1</span>)</span><br><span class="line">			<span class="keyword">while</span> allPeers[objID] <span class="keyword">is</span> someone:</span><br><span class="line">				objID = random.randint(<span class="number">0</span>, num<span class="number">-1</span>)</span><br><span class="line">			serve(allPeers[objID], someone)</span><br><span class="line">		<span class="keyword">if</span> someone.reputation &lt; h0:</span><br><span class="line">			someone.reputation = someone.reputation + <span class="number">1</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			fail = random.random()</span><br><span class="line">			<span class="keyword">if</span> fail &lt; alpha:</span><br><span class="line">				someone.reputation = <span class="number">0</span></span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				someone.reputation = min(L, someone.reputation + <span class="number">1</span>)</span><br><span class="line">		distribution[someone.reputation] = distribution[someone.reputation] + <span class="number">1</span></span><br><span class="line">	activeNum = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(h0, L+<span class="number">1</span>):</span><br><span class="line">		activeNum = activeNum + distribution[i]</span><br><span class="line">	percent = int(t / float(ticks) * <span class="number">100</span>)</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"Progress %d %% \r"</span> %percent,</span><br><span class="line">	<span class="comment">#print distribution</span></span><br><span class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, L+<span class="number">1</span>):</span><br><span class="line">		plot[x][t] = distribution[x]</span><br><span class="line">	<span class="keyword">if</span> t &gt;= <span class="number">1</span>:</span><br><span class="line">		<span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, L+<span class="number">1</span>):</span><br><span class="line">			<span class="keyword">if</span> x == L:</span><br><span class="line">				theory[x][t] = (<span class="number">1</span>-alpha)*theory[x][t<span class="number">-1</span>] + (<span class="number">1</span>-alpha)*theory[x<span class="number">-1</span>][t<span class="number">-1</span>]</span><br><span class="line">			<span class="keyword">elif</span> x &gt;= h0+<span class="number">1</span>:</span><br><span class="line">				theory[x][t] = (<span class="number">1</span>-alpha)*theory[x<span class="number">-1</span>][t<span class="number">-1</span>]</span><br><span class="line">			<span class="keyword">elif</span> x &gt;= <span class="number">1</span>:</span><br><span class="line">				theory[x][t] = theory[x<span class="number">-1</span>][t<span class="number">-1</span>]</span><br><span class="line">			<span class="keyword">else</span>:</span><br><span class="line">				theory[x][t] = alpha*Theory_active[t<span class="number">-1</span>]</span><br><span class="line">			<span class="keyword">if</span> x &gt;= h0:</span><br><span class="line">				Theory_active[t] = Theory_active[t] + theory[x][t]</span><br><span class="line">		</span><br><span class="line">	Theory_ratio[t] = Theory_active[t]/float(num)</span><br><span class="line">	ratio[t] = activeNum/float(num)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">" "</span>*<span class="number">20</span> + <span class="string">"\r"</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Complete!"</span></span><br><span class="line">plt.figure(<span class="number">1</span>)</span><br><span class="line">plt.subplot(<span class="number">211</span>)</span><br><span class="line">plt.title(<span class="string">"Distribution"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, L+<span class="number">1</span>):</span><br><span class="line">	plt.plot(plot[x], label = str(x))</span><br><span class="line">plt.xlabel(<span class="string">'Time'</span>)</span><br><span class="line">plt.axis([<span class="number">0</span>, ticks, <span class="number">0</span>, L+<span class="number">1</span>])</span><br><span class="line">plt.ylabel(<span class="string">'Number'</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">212</span>)</span><br><span class="line">plt.plot(ratio)</span><br><span class="line">plt.title(<span class="string">"Ratio"</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Time'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Active Ratio'</span>)</span><br><span class="line">plt.axis([<span class="number">0</span>, ticks, <span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.figure(<span class="number">2</span>)</span><br><span class="line">plt.subplot(<span class="number">211</span>)</span><br><span class="line">plt.title(<span class="string">"Theoretical Distribution"</span>)</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, L+<span class="number">1</span>):</span><br><span class="line">	plt.plot(theory[x], label = str(x))</span><br><span class="line">plt.xlabel(<span class="string">'Time'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Number'</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">212</span>)</span><br><span class="line">plt.plot(Theory_ratio)</span><br><span class="line">plt.title(<span class="string">"Theoretical Ratio"</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Time'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Active Ratio'</span>)</span><br><span class="line">plt.axis([<span class="number">0</span>, ticks, <span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">plt.close(<span class="string">'all'</span>)</span><br></pre></td></tr></table></figure>
+<p>几组运行结果如下：</p>
+<ul>
+<li>使用全部default设定：</li>
+</ul>
+<p><img src="/imges/test3K_simu.png" alt="此处本该是图片"></p>
+<p><img src="/images/test3k_theo.png" alt="此处本该是图片"></p>
+<ul>
+<li><p>仅将时间延长到10000</p>
+<p><img src="/imges/test10k_simu.png" alt="此处本该是图片"></p>
+<p><img src="/imges/test10k_theo.png" alt="此处本该是图片"></p>
+</li>
+<li><p>时间仍然为10000，threshold调为15 (75% limit)</p>
+<p><img src="/imges/test10k_simu_15th.png" alt="此处本该是图片"></p>
+<p><img src="/imges/test10k_theo_15th.png" alt="此处本该是图片"></p>
+</li>
+<li><p>将系统出错概率调整为0.0000001</p>
+<p><img src="/imges/test3k_simu_e-7.png" alt="此处本该是图片"></p>
+<p><img src="/imges/test3k_theo_e-7.png" alt="此处本该是图片"></p>
+<p>虽然理论上还要再分析一下之类的。。。但是现在懒癌犯了，下次再补吧。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/04/11/P2POnSocialNorm_simulation1/" data-id="cimvvykeo00034wxtu5vlshcz" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/03/28/CS35L-March-28th/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">CS35L March 28th</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CS-35L/" style="font-size: 10px;">CS 35L</a> <a href="/blog/tags/Other/" style="font-size: 10px;">Other</a> <a href="/blog/tags/Research-Notes/" style="font-size: 20px;">Research Notes</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/04/11/P2POnSocialNorm_simulation1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/CS35L-March-28th/">CS35L March 28th</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/SEDUM/">SEDUM</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/PeopleRank/">PeopleRank</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/">Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Qianmeng Chen<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>
