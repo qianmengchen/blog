@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN | Qianmeng&#39;s Blog</title>
+  <title>Qianmeng&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Important:  compute the average delay of one-copy-two-hop routing scheme:$E(T{s, d}) = \frac{1}{\lambda{s, d}+\sum{i \in \Omega}\lambda{s, i}} + \sum{i \in \Omega}\frac{\lambda{s, i}}{\lambda{s, d} +">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Multi-hop vs Two-hop Routing Modeling & Simulation in DTN">
-<meta property="og:url" content="http://qianmengchen.github.io/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Qianmeng's Blog">
+<meta property="og:url" content="http://qianmengchen.github.io/blog/page/2/index.html">
 <meta property="og:site_name" content="Qianmeng's Blog">
-<meta property="og:description" content="Important:  compute the average delay of one-copy-two-hop routing scheme:$E(T{s, d}) = \frac{1}{\lambda{s, d}+\sum{i \in \Omega}\lambda{s, i}} + \sum{i \in \Omega}\frac{\lambda{s, i}}{\lambda{s, d} +">
-<meta property="og:updated_time" content="2016-04-05T05:07:15.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Multi-hop vs Two-hop Routing Modeling & Simulation in DTN">
-<meta name="twitter:description" content="Important:  compute the average delay of one-copy-two-hop routing scheme:$E(T{s, d}) = \frac{1}{\lambda{s, d}+\sum{i \in \Omega}\lambda{s, i}} + \sum{i \in \Omega}\frac{\lambda{s, i}}{\lambda{s, d} +">
+<meta name="twitter:title" content="Qianmeng's Blog">
+<meta name="twitter:description">
   
     <link rel="alternate" href="atom.xml" title="Qianmeng&#39;s Blog" type="application/atom+xml">
   
@@ -63,10 +62,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-Hello-World-0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/" class="article-date">
-  <time datetime="2016-03-28T22:18:33.000Z" itemprop="datePublished">2016-03-28</time>
+    <a href="/blog/2016/01/29/Hello-World-0/" class="article-date">
+  <time datetime="2016-01-29T11:41:01.000Z" itemprop="datePublished">2016-01-29</time>
 </a>
     
   </div>
@@ -76,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016/01/29/Hello-World-0/">Hello World</a>
     </h1>
   
 
@@ -85,50 +86,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>Important: </strong> compute the average delay of one-copy-two-hop routing scheme:<br>$E(T<em>{s, d}) = \frac{1}{\lambda</em>{s, d}+\sum<em>{i \in \Omega}\lambda</em>{s, i}} + \sum<em>{i \in \Omega}\frac{\lambda</em>{s, i}}{\lambda<em>{s, d} + \sum</em>{i \in \Omega}\lambda<em>{s, i}}\frac{1}{\lambda</em>{s, d} + \lambda<em>{i, d}} = \sum</em>{i \in \Omega’}\frac{\lambda_{s, i}}{s\Omega’}\frac{1}{\mu_i}$</p>
-<p>$\Omega’ = \Omega \cup d$ is the set of nodes s may meet after t=0 and $\mu<em>d = \frac{1}{\lambda</em>{s, d}}$, $\mu<em>i = \frac{1}{\lambda</em>{s, d}+\lambda<em>{i, d}}$<br>It is clear that $E(T</em>{s, d})$ is simply a weighted sum over $\mu<em>i$. To get the minimum $E(T</em>{s, d})$ over all possible $\Omega$, we can use a simple algorithm as follows:</p>
-<ol>
-<li>sort $\mu_i$ in ascending order</li>
-<li>add $N<em>i$ to $\Omega‘$ if it decreases $E(T</em>{s, d})$</li>
-</ol>
-<p><strong>Note: </strong>initially destination d has to be in the set.</p>
-<p>The average delivery delay of multi-copy-multi-hop routing scheme:<br>$E(T<em>{s, d}^n) = \frac{1}{\lambda</em>{s, d}+\sum_{i \in \Omega<em>n}\lambda</em>{s, i} }+ \sum_{i \in \Omega<em>n}\frac{\lambda</em>{s, i}}{\lambda<em>{s, d}+\sum</em>{i \in \Omega<em>n}\lambda</em>{s, i}}E(min{T<em>{s, d}^{n-1}, T</em>{i, d}^{n-1}})$</p>
-<p>The upper bound for $E(min{T<em>{s, d}^{n-1}, T</em>{i, d}^{n-1}})$ is ${E(T<em>{s, d}^{n-1}), E(T</em>{i, d}^{n-1})}$<br>To derive the forwarding sets for each state, we start from state 1 of s, which involves only its direct neighbors $N_1, \cdots, N_m$</p>
+        <p>没错这只是一个Hello World。</p>
+<p>目前来说这个博客打算用来放自己零零散散学的一些东西，没有什么值得看的。文章一般情况下会先写中文版，写不写英文版看心情＝ ＝。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/" data-id="cimwjkyoq000er5zkevut1d6u" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/01/29/Hello-World-0/" data-id="cimwjkyo90003r5zky3in17ls" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Other/">Other</a></li></ul>
 
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/blog/2016/03/28/PeopleRank/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          PeopleRank
-        
-      </div>
-    </a>
-  
-  
-    <a href="/blog/2016/03/28/Spray-and-Wait/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Spray and Wait</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/blog/">&laquo; __('prev')</a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span>
+  </nav>
 </section>
         
           <aside id="sidebar">

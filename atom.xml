@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://qianmengchen.github.io/blog/"/>
-  <updated>2016-04-11T11:57:59.000Z</updated>
+  <updated>2016-04-11T21:49:51.000Z</updated>
   <id>http://qianmengchen.github.io/blog/</id>
   
   <author>
@@ -16,11 +16,145 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://qianmengchen.github.io/blog/2016/04/11/cs35L%200411/"/>
+    <id>http://qianmengchen.github.io/blog/2016/04/11/cs35L 0411/</id>
+    <published>2016-04-11T21:45:11.000Z</published>
+    <updated>2016-04-11T21:49:51.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Modifying-program&quot;&gt;&lt;a href=&quot;#Modifying-program&quot; class=&quot;headerlink&quot; title=&quot;Modifying program&quot;&gt;&lt;/a&gt;Modifying program&lt;/h1&gt;&lt;p&gt;How to install software&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows&lt;ul&gt;
+&lt;li&gt;installshield&lt;/li&gt;
+&lt;li&gt;windows installer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Linux&lt;ul&gt;
+&lt;li&gt;rpm (RedHat Linux) (.rpm)&lt;/li&gt;
+&lt;li&gt;apt-get (Debian Linux, Ubuntu Linux) (.deb)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Decompressing Files&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Generally you would get Linux software in the tarball format (.tgz, .gz)&lt;/li&gt;
+&lt;li&gt;Decompress file in current directory&lt;ul&gt;
+&lt;li&gt;tar -xzvf filename.tar.gz&lt;ul&gt;
+&lt;li&gt;Option -x: —extract&lt;/li&gt;
+&lt;li&gt;Option -z: —gzip&lt;/li&gt;
+&lt;li&gt;Option -v: —verbose&lt;/li&gt;
+&lt;li&gt;Option -f: —file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Compilation Process&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;C++ preprocessor  —&amp;gt; expanded source code&lt;/li&gt;
+&lt;li&gt;compiler —&amp;gt; .s&lt;/li&gt;
+&lt;li&gt;assembler  —&amp;gt; .o&lt;/li&gt;
+&lt;li&gt;linker —&amp;gt; executable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Command-Line Compilation (example)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;shop.c&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;#includes shoppingList.h and item.h&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;shoppingList.c&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;#includes shoppingList.h&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;item.c&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;#includes item.h&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;How to compile?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gcc shoppingList.c item.c shop.c -o shop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;What if…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;we change one of the header or source files&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rerun command to generate new executable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We only made a small change to item.c&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;not efficient to recompile all the c files&lt;/li&gt;
+&lt;li&gt;Solution: avoid waste by producing a separate object code file (.o) for each source file&lt;ul&gt;
+&lt;li&gt;gcc -c item.c … (for each file)&lt;/li&gt;
+&lt;li&gt;gcc item.o shoppingList.o shop.o -o shop (combine)&lt;/li&gt;
+&lt;li&gt;Less work for compiler, saves time but more commands&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We change item.h&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;We need to recompile all the files including item.h and header including item.h (here: item.c and shop.c)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make can automatically determine which files should be recompiled&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Makefile Example&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;# Makefile - A Basic Example&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;item.o: item.c item.h&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		gcc -c item.c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;shoppingList.o: shoppingList.c item.h shoppingList.h&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		gcc -c shippingList.c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;shop.o: shop.c item.c shoppingList.h&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		gcc -c shop.c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;shop: item.o shoppingList.o shop.o&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		gcc -o shop item.o shoppingList.o shop.o&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;clean:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		rm -f item.o shoppingList.o shop.o shop&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;all: shop # usually first&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Usage:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make item.o #apply rule 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make shop #apply rule 4 (Usually we make executable, because in this case it will check everything automatically)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Build Process&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;configure&lt;ul&gt;
+&lt;li&gt;Script that checks details about the machine before instalation&lt;ul&gt;
+&lt;li&gt;Dependency between packages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Creates ‘Makefile’&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;make&lt;ul&gt;
+&lt;li&gt;Requires ‘Makefile’ to run&lt;/li&gt;
+&lt;li&gt;Compiles all the program code and creates executables in current temporary directory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;make install&lt;ul&gt;
+&lt;li&gt;make utility searches for a label named install within the Makefile, and executes only that section of it&lt;/li&gt;
+&lt;li&gt;executables are copied into the final directories (system directories)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Modifying-program&quot;&gt;&lt;a href=&quot;#Modifying-program&quot; class=&quot;headerlink&quot; title=&quot;Modifying program&quot;&gt;&lt;/a&gt;Modifying program&lt;/h1&gt;&lt;p&gt;How to ins
+    
+    </summary>
+    
+    
+      <category term="CS 35L" scheme="http://qianmengchen.github.io/blog/tags/CS-35L/"/>
+    
+  </entry>
+  
+  <entry>
     <title>P2POnSocialNorm_simulation1</title>
     <link href="http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm-simulation1/"/>
     <id>http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm-simulation1/</id>
     <published>2016-04-11T11:35:00.000Z</published>
-    <updated>2016-04-11T11:57:59.000Z</updated>
+    <updated>2016-04-11T21:52:29.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;一个简单的模拟&quot;&gt;&lt;a href=&quot;#一个简单的模拟&quot; class=&quot;headerlink&quot; title=&quot;一个简单的模拟&quot;&gt;&lt;/a&gt;一个简单的模拟&lt;/h2&gt;&lt;p&gt;背景：&lt;/p&gt;
 &lt;p&gt;在一个DTN中，假设每个人都可以提供某种服务或者接受别人的服务。当俩节点相遇时，一方发出request，另一方可以选择serve或者不serve。现设计一种机制，使得网络中所有参与者都愿意在接收到他人请求时进行serve，避免出现free rider（即只获取服务不分享服务的人）。该机制如下：&lt;/p&gt;
@@ -40,20 +174,20 @@
 &lt;ul&gt;
 &lt;li&gt;使用全部default设定：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test3K_simu.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test3k_theo.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test3K_simu.png&quot; alt=&quot;test3K default simulation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test3k_theo.png&quot; alt=&quot;test3K default theory&quot;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;仅将时间延长到10000&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_simu.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_theo.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_simu.png&quot; alt=&quot;test10K default simulation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_theo.png&quot; alt=&quot;test10K default theory&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;时间仍然为10000，threshold调为15 (75% limit)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_simu_15th.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_theo_15th.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_simu_15th.png&quot; alt=&quot;test10K threshold15 simulation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test10k_theo_15th.png&quot; alt=&quot;test10K threshold15 theory&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;将系统出错概率调整为0.0000001&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test3k_simu_e-7.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/test3k_theo_e-7.png&quot; alt=&quot;此处本该是图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test3k_simu_e-7.png&quot; alt=&quot;test3K low-false-punishment simulation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/test3k_theo_e-7.png&quot; alt=&quot;test3K low-false-punishment theory&quot;&gt;&lt;/p&gt;
 &lt;p&gt;虽然理论上还要再分析一下之类的。。。但是现在懒癌犯了，下次再补吧。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

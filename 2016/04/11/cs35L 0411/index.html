@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Qianmeng&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Modifying programHow to install software
+
+Windows
+installshield
+windows installer
+
+
+Linux
+rpm (RedHat Linux) (.rpm)
+apt-get (Debian Linux, Ubuntu Linux) (.deb)
+
+
+
+Decompressing Files
+
+Generally you wo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qianmeng's Blog">
+<meta property="og:url" content="http://qianmengchen.github.io/blog/2016/04/11/cs35L 0411/index.html">
+<meta property="og:site_name" content="Qianmeng's Blog">
+<meta property="og:description" content="Modifying programHow to install software
+
+Windows
+installshield
+windows installer
+
+
+Linux
+rpm (RedHat Linux) (.rpm)
+apt-get (Debian Linux, Ubuntu Linux) (.deb)
+
+
+
+Decompressing Files
+
+Generally you wo">
+<meta property="og:updated_time" content="2016-04-11T21:49:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qianmeng's Blog">
+<meta name="twitter:description" content="Modifying programHow to install software
+
+Windows
+installshield
+windows installer
+
+
+Linux
+rpm (RedHat Linux) (.rpm)
+apt-get (Debian Linux, Ubuntu Linux) (.deb)
+
+
+
+Decompressing Files
+
+Generally you wo">
+  
+    <link rel="alternate" href="atom.xml" title="Qianmeng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Qianmeng&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/blog">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://qianmengchen.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-cs35L 0411" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/11/cs35L 0411/" class="article-date">
+  <time datetime="2016-04-11T21:45:11.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Modifying-program"><a href="#Modifying-program" class="headerlink" title="Modifying program"></a>Modifying program</h1><p>How to install software</p>
+<ul>
+<li>Windows<ul>
+<li>installshield</li>
+<li>windows installer</li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>rpm (RedHat Linux) (.rpm)</li>
+<li>apt-get (Debian Linux, Ubuntu Linux) (.deb)</li>
+</ul>
+</li>
+</ul>
+<p>Decompressing Files</p>
+<ul>
+<li>Generally you would get Linux software in the tarball format (.tgz, .gz)</li>
+<li>Decompress file in current directory<ul>
+<li>tar -xzvf filename.tar.gz<ul>
+<li>Option -x: —extract</li>
+<li>Option -z: —gzip</li>
+<li>Option -v: —verbose</li>
+<li>Option -f: —file</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Compilation Process</p>
+<ul>
+<li>C++ preprocessor  —&gt; expanded source code</li>
+<li>compiler —&gt; .s</li>
+<li>assembler  —&gt; .o</li>
+<li>linker —&gt; executable</li>
+</ul>
+<p>Command-Line Compilation (example)</p>
+<ul>
+<li><p>shop.c</p>
+<ul>
+<li>#includes shoppingList.h and item.h</li>
+</ul>
+</li>
+<li><p>shoppingList.c</p>
+<ul>
+<li>#includes shoppingList.h</li>
+</ul>
+</li>
+<li><p>item.c</p>
+<ul>
+<li>#includes item.h</li>
+</ul>
+</li>
+<li><p>How to compile?</p>
+<ul>
+<li>gcc shoppingList.c item.c shop.c -o shop</li>
+</ul>
+</li>
+<li><p>What if…</p>
+<ul>
+<li><p>we change one of the header or source files</p>
+<ul>
+<li>Rerun command to generate new executable</li>
+</ul>
+</li>
+<li><p>We only made a small change to item.c</p>
+<ul>
+<li>not efficient to recompile all the c files</li>
+<li>Solution: avoid waste by producing a separate object code file (.o) for each source file<ul>
+<li>gcc -c item.c … (for each file)</li>
+<li>gcc item.o shoppingList.o shop.o -o shop (combine)</li>
+<li>Less work for compiler, saves time but more commands</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>We change item.h</p>
+<ul>
+<li><p>We need to recompile all the files including item.h and header including item.h (here: item.c and shop.c)</p>
+</li>
+<li><p>Make can automatically determine which files should be recompiled</p>
+</li>
+<li><p>Makefile Example</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Makefile - A Basic Example</span><br><span class="line">item.o: item.c item.h</span><br><span class="line">		gcc -c item.c</span><br><span class="line">shoppingList.o: shoppingList.c item.h shoppingList.h</span><br><span class="line">		gcc -c shippingList.c</span><br><span class="line">shop.o: shop.c item.c shoppingList.h</span><br><span class="line">		gcc -c shop.c</span><br><span class="line">shop: item.o shoppingList.o shop.o</span><br><span class="line">		gcc -o shop item.o shoppingList.o shop.o</span><br><span class="line">clean:</span><br><span class="line">		rm -f item.o shoppingList.o shop.o shop</span><br><span class="line">all: shop # usually first</span><br><span class="line">		</span><br><span class="line">Usage:</span><br><span class="line">make item.o #apply rule 1</span><br><span class="line">make shop #apply rule 4 (Usually we make executable, because in this case it will check everything automatically)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Build Process</p>
+<ul>
+<li>configure<ul>
+<li>Script that checks details about the machine before instalation<ul>
+<li>Dependency between packages</li>
+</ul>
+</li>
+<li>Creates ‘Makefile’</li>
+</ul>
+</li>
+<li>make<ul>
+<li>Requires ‘Makefile’ to run</li>
+<li>Compiles all the program code and creates executables in current temporary directory</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>make install<ul>
+<li>make utility searches for a label named install within the Makefile, and executes only that section of it</li>
+<li>executables are copied into the final directories (system directories)</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/04/11/cs35L 0411/" data-id="cimwjkyon000cr5zkn06xrd26" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2016/04/11/P2POnSocialNorm-simulation1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">P2POnSocialNorm_simulation1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CS-35L/" style="font-size: 15px;">CS 35L</a> <a href="/blog/tags/Other/" style="font-size: 10px;">Other</a> <a href="/blog/tags/Research-Notes/" style="font-size: 20px;">Research Notes</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/04/11/cs35L 0411/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/04/11/P2POnSocialNorm-simulation1/">P2POnSocialNorm_simulation1</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/CS35L-March-28th/">CS35L March 28th</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/SEDUM/">SEDUM</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/03/28/PeopleRank/">PeopleRank</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Qianmeng Chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/blog" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

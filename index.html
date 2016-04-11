@@ -64,6 +64,148 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cs35L 0411" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/11/cs35L 0411/" class="article-date">
+  <time datetime="2016-04-11T21:45:11.000Z" itemprop="datePublished">2016-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Modifying-program"><a href="#Modifying-program" class="headerlink" title="Modifying program"></a>Modifying program</h1><p>How to install software</p>
+<ul>
+<li>Windows<ul>
+<li>installshield</li>
+<li>windows installer</li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>rpm (RedHat Linux) (.rpm)</li>
+<li>apt-get (Debian Linux, Ubuntu Linux) (.deb)</li>
+</ul>
+</li>
+</ul>
+<p>Decompressing Files</p>
+<ul>
+<li>Generally you would get Linux software in the tarball format (.tgz, .gz)</li>
+<li>Decompress file in current directory<ul>
+<li>tar -xzvf filename.tar.gz<ul>
+<li>Option -x: —extract</li>
+<li>Option -z: —gzip</li>
+<li>Option -v: —verbose</li>
+<li>Option -f: —file</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Compilation Process</p>
+<ul>
+<li>C++ preprocessor  —&gt; expanded source code</li>
+<li>compiler —&gt; .s</li>
+<li>assembler  —&gt; .o</li>
+<li>linker —&gt; executable</li>
+</ul>
+<p>Command-Line Compilation (example)</p>
+<ul>
+<li><p>shop.c</p>
+<ul>
+<li>#includes shoppingList.h and item.h</li>
+</ul>
+</li>
+<li><p>shoppingList.c</p>
+<ul>
+<li>#includes shoppingList.h</li>
+</ul>
+</li>
+<li><p>item.c</p>
+<ul>
+<li>#includes item.h</li>
+</ul>
+</li>
+<li><p>How to compile?</p>
+<ul>
+<li>gcc shoppingList.c item.c shop.c -o shop</li>
+</ul>
+</li>
+<li><p>What if…</p>
+<ul>
+<li><p>we change one of the header or source files</p>
+<ul>
+<li>Rerun command to generate new executable</li>
+</ul>
+</li>
+<li><p>We only made a small change to item.c</p>
+<ul>
+<li>not efficient to recompile all the c files</li>
+<li>Solution: avoid waste by producing a separate object code file (.o) for each source file<ul>
+<li>gcc -c item.c … (for each file)</li>
+<li>gcc item.o shoppingList.o shop.o -o shop (combine)</li>
+<li>Less work for compiler, saves time but more commands</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>We change item.h</p>
+<ul>
+<li><p>We need to recompile all the files including item.h and header including item.h (here: item.c and shop.c)</p>
+</li>
+<li><p>Make can automatically determine which files should be recompiled</p>
+</li>
+<li><p>Makefile Example</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Makefile - A Basic Example</span><br><span class="line">item.o: item.c item.h</span><br><span class="line">		gcc -c item.c</span><br><span class="line">shoppingList.o: shoppingList.c item.h shoppingList.h</span><br><span class="line">		gcc -c shippingList.c</span><br><span class="line">shop.o: shop.c item.c shoppingList.h</span><br><span class="line">		gcc -c shop.c</span><br><span class="line">shop: item.o shoppingList.o shop.o</span><br><span class="line">		gcc -o shop item.o shoppingList.o shop.o</span><br><span class="line">clean:</span><br><span class="line">		rm -f item.o shoppingList.o shop.o shop</span><br><span class="line">all: shop # usually first</span><br><span class="line">		</span><br><span class="line">Usage:</span><br><span class="line">make item.o #apply rule 1</span><br><span class="line">make shop #apply rule 4 (Usually we make executable, because in this case it will check everything automatically)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Build Process</p>
+<ul>
+<li>configure<ul>
+<li>Script that checks details about the machine before instalation<ul>
+<li>Dependency between packages</li>
+</ul>
+</li>
+<li>Creates ‘Makefile’</li>
+</ul>
+</li>
+<li>make<ul>
+<li>Requires ‘Makefile’ to run</li>
+<li>Compiles all the program code and creates executables in current temporary directory</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>make install<ul>
+<li>make utility searches for a label named install within the Makefile, and executes only that section of it</li>
+<li>executables are copied into the final directories (system directories)</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/04/11/cs35L 0411/" data-id="cimwjkyon000cr5zkn06xrd26" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-P2POnSocialNorm-simulation1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2016/04/11/P2POnSocialNorm-simulation1/" class="article-date">
@@ -104,20 +246,20 @@
 <ul>
 <li>使用全部default设定：</li>
 </ul>
-<p><img src="/blog/images/test3K_simu.png" alt="此处本该是图片"></p>
-<p><img src="/blog/images/test3k_theo.png" alt="此处本该是图片"></p>
+<p><img src="/blog/images/test3K_simu.png" alt="test3K default simulation"></p>
+<p><img src="/blog/images/test3k_theo.png" alt="test3K default theory"></p>
 <ul>
 <li><p>仅将时间延长到10000</p>
-<p><img src="/blog/images/test10k_simu.png" alt="此处本该是图片"></p>
-<p><img src="/blog/images/test10k_theo.png" alt="此处本该是图片"></p>
+<p><img src="/blog/images/test10k_simu.png" alt="test10K default simulation"></p>
+<p><img src="/blog/images/test10k_theo.png" alt="test10K default theory"></p>
 </li>
 <li><p>时间仍然为10000，threshold调为15 (75% limit)</p>
-<p><img src="/blog/images/test10k_simu_15th.png" alt="此处本该是图片"></p>
-<p><img src="/blog/images/test10k_theo_15th.png" alt="此处本该是图片"></p>
+<p><img src="/blog/images/test10k_simu_15th.png" alt="test10K threshold15 simulation"></p>
+<p><img src="/blog/images/test10k_theo_15th.png" alt="test10K threshold15 theory"></p>
 </li>
 <li><p>将系统出错概率调整为0.0000001</p>
-<p><img src="/blog/images/test3k_simu_e-7.png" alt="此处本该是图片"></p>
-<p><img src="/blog/images/test3k_theo_e-7.png" alt="此处本该是图片"></p>
+<p><img src="/blog/images/test3k_simu_e-7.png" alt="test3K low-false-punishment simulation"></p>
+<p><img src="/blog/images/test3k_theo_e-7.png" alt="test3K low-false-punishment theory"></p>
 <p>虽然理论上还要再分析一下之类的。。。但是现在懒癌犯了，下次再补吧。</p>
 </li>
 </ul>
@@ -125,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/04/11/P2POnSocialNorm-simulation1/" data-id="cimvy3hnm000dchxtno13epjd" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/04/11/P2POnSocialNorm-simulation1/" data-id="cimwjkyob0004r5zkw345t35j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -260,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/CS35L-March-28th/" data-id="cimvy3hn70003chxt5iby8ptf" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/CS35L-March-28th/" data-id="cimwjkynv0000r5zk7ujlovv9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CS-35L/">CS 35L</a></li></ul>
@@ -323,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/SEDUM/" data-id="cimvy3hns000ichxt7ag849oa" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/SEDUM/" data-id="cimwjkyoh0008r5zkggdg3pcd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -363,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/PeopleRank/" data-id="cimvy3hnf0008chxt57igrroo" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/PeopleRank/" data-id="cimwjkyod0006r5zk7s98s4cu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -410,7 +552,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/" data-id="cimvy3hn20001chxt8eopzysf" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/" data-id="cimwjkyoq000er5zkevut1d6u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -466,7 +608,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Spray-and-Wait/" data-id="cimvy3hni000bchxtibfcspvi" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Spray-and-Wait/" data-id="cimwjkyox000jr5zkg16ipipf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -531,7 +673,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/BUBBLE-Rap/" data-id="cimvy3hmv0000chxtbfvr9oxh" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/BUBBLE-Rap/" data-id="cimwjkyo30001r5zkd33903jn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -664,7 +806,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Introduction-to-MANET/" data-id="cimvy3hnb0006chxtct5pgb6h" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/Introduction-to-MANET/" data-id="cimwjkyoj0009r5zkyh25hbf2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -783,7 +925,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/随建即连网络/" data-id="cimvy3hnq000fchxtv18p6lhv" class="article-share-link">Share</a>
+      <a data-url="http://qianmengchen.github.io/blog/blog/2016/03/28/随建即连网络/" data-id="cimwjkyou000hr5zkebbd5mhx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Research-Notes/">Research Notes</a></li></ul>
@@ -795,47 +937,11 @@
 
 
   
-    <article id="post-Hello-World-0" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2016/01/29/Hello-World-0/" class="article-date">
-  <time datetime="2016-01-29T11:41:01.000Z" itemprop="datePublished">2016-01-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016/01/29/Hello-World-0/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>没错这只是一个Hello World。</p>
-<p>目前来说这个博客打算用来放自己零零散散学的一些东西，没有什么值得看的。文章一般情况下会先写中文版，写不写英文版看心情＝ ＝。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://qianmengchen.github.io/blog/blog/2016/01/29/Hello-World-0/" data-id="cimvy3hn90004chxtuv66k2ql" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Other/">Other</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
 
 
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -857,7 +963,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/CS-35L/" style="font-size: 10px;">CS 35L</a> <a href="/blog/tags/Other/" style="font-size: 10px;">Other</a> <a href="/blog/tags/Research-Notes/" style="font-size: 20px;">Research Notes</a>
+      <a href="/blog/tags/CS-35L/" style="font-size: 15px;">CS 35L</a> <a href="/blog/tags/Other/" style="font-size: 10px;">Other</a> <a href="/blog/tags/Research-Notes/" style="font-size: 20px;">Research Notes</a>
     </div>
   </div>
 
@@ -879,6 +985,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2016/04/11/cs35L 0411/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/blog/2016/04/11/P2POnSocialNorm-simulation1/">P2POnSocialNorm_simulation1</a>
           </li>
         
@@ -892,10 +1002,6 @@
         
           <li>
             <a href="/blog/2016/03/28/PeopleRank/">PeopleRank</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2016/03/28/Multi-hop-vs-Two-hop-Routing-Modeling-Simulation-in-DTN/">Multi-hop vs Two-hop Routing Modeling &amp; Simulation in DTN</a>
           </li>
         
       </ul>
