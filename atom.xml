@@ -154,7 +154,7 @@
     <link href="http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm-simulation1/"/>
     <id>http://qianmengchen.github.io/blog/2016/04/11/P2POnSocialNorm-simulation1/</id>
     <published>2016-04-11T11:35:00.000Z</published>
-    <updated>2016-04-11T21:52:29.000Z</updated>
+    <updated>2016-04-13T06:11:44.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;一个简单的模拟&quot;&gt;&lt;a href=&quot;#一个简单的模拟&quot; class=&quot;headerlink&quot; title=&quot;一个简单的模拟&quot;&gt;&lt;/a&gt;一个简单的模拟&lt;/h2&gt;&lt;p&gt;背景：&lt;/p&gt;
 &lt;p&gt;在一个DTN中，假设每个人都可以提供某种服务或者接受别人的服务。当俩节点相遇时，一方发出request，另一方可以选择serve或者不serve。现设计一种机制，使得网络中所有参与者都愿意在接收到他人请求时进行serve，避免出现free rider（即只获取服务不分享服务的人）。该机制如下：&lt;/p&gt;
@@ -188,9 +188,18 @@
 &lt;li&gt;&lt;p&gt;将系统出错概率调整为0.0000001&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/images/test3k_simu_e-7.png&quot; alt=&quot;test3K low-false-punishment simulation&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/blog/images/test3k_theo_e-7.png&quot; alt=&quot;test3K low-false-punishment theory&quot;&gt;&lt;/p&gt;
-&lt;p&gt;虽然理论上还要再分析一下之类的。。。但是现在懒癌犯了，下次再补吧。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;分析：&lt;/p&gt;
+&lt;p&gt;略&lt;/p&gt;
+&lt;p&gt;之后再整篇paper的基础上加了几个考虑因素。一个是forgiveness，即有一定概率违背规则后reputation不被降为0 。此外还引入了malicious peer和altruistic peer，虽然对结果没有什么影响。。。&lt;/p&gt;
+&lt;p&gt;以下是新的python代码&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/newVer3k_simu.png&quot; alt=&quot;newTest3K default simulation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/newVer3k_theo.png&quot; alt=&quot;newTest3K default theory&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/newVer10k_simu.png&quot; alt=&quot;newTest10K default simulation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/newVer10k_theo.png&quot; alt=&quot;newTest10K default simulation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;分析：&lt;/p&gt;
+&lt;p&gt;略&lt;/p&gt;
 </content>
     
     <summary type="html">
